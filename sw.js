@@ -8,7 +8,7 @@ if (workbox) {
    and config in the sw-config.js file
     */
     workbox.routing.registerRoute(
-        /(.*)others(.*)\.(?:png|gif|jpg)/,
+        /(.*)others(.*)\.(?:png|gif|jpg|pdf)/,
         new workbox.strategies.CacheFirst({
             cacheName: "images",
             plugins: [
