@@ -84,13 +84,39 @@
         </div>
       </div>
     </div>
-    <button
-      type="button"
-      onclick="printJS('https:\/\/pedantic-morse-5f979f.netlify.com\/docs\/dummy.pdf')"
-    >
+    <!-- <div id="pdfContent">
+      dfasfd
+    </div>
+    <button onclick="processPrint()">
       Print PDF
-    </button>
+    </button> -->
+
+    <div id="printableArea" hidden>
+      <h1 style="font-size: 150px">Print me</h1>
+    </div>
+
+    <input
+      type="button"
+      onclick="printDiv('printableArea')"
+      value="print a div!"
+    />
     <script src="js/app.js"></script>
-    <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script>
+    <!-- <script src="https://printjs-4de6.kxcdn.com/print.min.js"></script> -->
+    <!-- <script src="https://unpkg.com/printd/printd.umd.min.js"></script> -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script> -->
+
+    <script>
+      function printDiv(divName) {
+        var printContents = document.getElementById(divName).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+      }
+    </script>
   </body>
 </html>
