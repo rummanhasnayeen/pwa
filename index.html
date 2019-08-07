@@ -107,13 +107,13 @@
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script> -->
 
     <script>
-      function printDiv(divName) {
+      async function printDiv(divName) {
         var printContents = document.getElementById(divName).innerHTML;
         var originalContents = document.body.innerHTML;
 
         document.body.innerHTML = printContents;
 
-        window.print();
+        await window.print();
 
         document.body.innerHTML = originalContents;
       }
